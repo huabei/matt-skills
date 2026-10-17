@@ -22,7 +22,7 @@ Recommend a skill from the retained set below, explain why it fits, and stop so 
 | Review uncommitted changes for correctness and efficiency | `/code-review` |
 | Design a module's interface or structure using project terminology | `/codebase-design` |
 | Clarify project terminology or distinguish current and intended behaviour | `/domain-modeling` |
-| Improve the agent's environment after a coding session | `/retro` |
+| Suggest evidence-based improvements to the agent's environment after a session | `/retro` |
 | Transfer context to another session or workspace | `/handoff` |
 | Learn a concept with a stateful teaching workspace | `/teach` |
 | Re-explain a message that did not land | `/wait-what` |

@@ -20,15 +20,15 @@ Each candidate belongs to one category, and the category decides where the fix g
 | --- | --- |
 | The agent took a long time to find a file or fact | A **navigation pointer** from a file it already reads |
 | It made a mistake a tool could have caught | An **[automated check](https://www.aihero.dev/ai-coding-dictionary/automated-check)**: lint rule, type, test, pre-commit hook, CI job |
-| The reviewer missed a judgement-call mistake | A rule in `CODING_STANDARDS.md` for the reviewer agent |
+| The reviewer missed a judgement-call mistake | A rule in the existing standards for implementation and review |
 | `AGENTS.md` or `CLAUDE.md` is large | Move its steering out, into standards or checks |
 | A tool call was expensive for what it returned | Streamline the tool, or replace it |
 | A steering file is full of lines that change nothing | Delete the **no-ops** |
 | The agent needed information it couldn't reach | Widen its access: tee the dev server log to a file, give read-only access to a service |
 
-The leading idea is that standards belong to the **reviewer**, not the implementer. The implementing agent has the most context pressure, because it explores, writes code, and debugs failures. The reviewing agent gets a diff and nothing else. So a new rule goes where there is room to apply it, which is review. It never goes in [AGENTS.md](https://www.aihero.dev/ai-coding-dictionary/agents-md), which loads into every session's [context window](https://www.aihero.dev/ai-coding-dictionary/context-window) whether it is relevant or not.
+Repository standards guide both implementation and independent review. Reviewers may need surrounding code and context in addition to the diff. Keep relevant guidance accessible without duplicating it in every instruction file.
 
-Before `retro` writes any rule, it classifies the violation. A **mechanical** violation (a banned API, an import shape, a file-location rule) gets a deterministic check, because a check can fail and a sentence in a standards file can't. Only real judgement calls, which no linter can enforce, become prose. If the repo has no guardrail at all (no pre-commit hook, and no CI job that runs lint, typecheck, and tests), `retro` reports that as a finding of its own.
+Suggestions must address problems evidenced in the session. Prefer reusing or repairing existing checks, and propose a new one only when its benefit justifies the cost. Missing CI or pre-commit hooks alone is not a finding. The retrospective does not build checks, edit rules, or install tooling.
 
 ## Common questions
 
@@ -50,11 +50,11 @@ By default it reviews the current session. That is the best case, because the st
 
 **The agent keeps making the same mistake. Should I add a line to `CLAUDE.md`?**
 
-Usually not, and `retro` pushes back on this more than anything else. A line in `CLAUDE.md` loads into every session, gives less weight to everything else in the file, and goes out of date as the code changes. If the mistake is mechanical, the fix is a check that fails. If it is a judgement call, it goes in the coding standards the reviewer reads. `AGENTS.md` and `CLAUDE.md` are for navigation pointers and little else. For the same reason, `retro` is not a [memory system](https://www.aihero.dev/ai-coding-dictionary/memory-system). It does not store what happened. It changes the environment so the mistake cannot happen again.
+Usually not, and `retro` pushes back on this more than anything else. A line in `CLAUDE.md` loads into every session, gives less weight to everything else in the file, and goes out of date as the code changes. If the mistake is mechanical, the fix is a check that fails. For a judgement call, consider the existing coding standards used during implementation and review. `AGENTS.md` and `CLAUDE.md` are for navigation pointers and little else. For the same reason, `retro` is not a [memory system](https://www.aihero.dev/ai-coding-dictionary/memory-system). It does not store what happened. It changes the environment so the mistake cannot happen again.
 
 **My setup mentions `CODING_STANDARDS.md` and I don't have one. Where does it come from?**
 
-No skill ships the file. The first time a session finds a judgement-call rule for the reviewer, `retro` proposes to create it. After you accept, [code-review](https://aihero.dev/skills-code-review) reads it. Any other standards doc you already keep, such as `CONTRIBUTING.md`, works the same way.
+No skill ships the file. When a session supports a useful judgement-call rule, `retro` proposes to create it. After you accept, [code-review](https://aihero.dev/skills-code-review) reads it. Any other standards doc you already keep, such as `CONTRIBUTING.md`, works the same way.
 
 **How is it different from `improve-codebase-architecture`?**
 
@@ -63,7 +63,7 @@ The input is different. [improve-codebase-architecture (archived)](https://aiher
 ## It's working if
 
 - Every candidate points back to a specific moment in the session, not a generic best practice.
-- Repeat mistakes turn into failing checks, and your `AGENTS.md` gets shorter over time, not longer.
+- Suggested checks address observed mistakes and have benefits that justify their cost.
 - If a check already existed but was not connected, the finding is to connect it, not a proposal to build a new one.
 - The next session on the same kind of task finds what it needs faster.
 
@@ -72,12 +72,12 @@ The input is different. [improve-codebase-architecture (archived)](https://aiher
 `retro` is the last step of the main chain, where you review how the chain went:
 
 ```txt
-grill-with-docs → to-spec → to-tickets → implement → code-review → retro
+grill-with-docs → to-plan → implement → code-review → retro
 ```
 
 Run it after a build worth learning from, in the same session or pointed at that session's log. You can skip it after a smooth build.
 
-- [code-review](https://aihero.dev/skills-code-review) is the reviewer agent that `retro` most often tunes. New coding standards go where its Standards axis reads them.
+- [code-review](https://aihero.dev/skills-code-review) is the reviewer agent that `retro` most often tunes. Applicable coding standards inform its correctness and efficiency reviews as well as implementation.
 - [writing-for-agents](https://aihero.dev/skills-writing-for-agents) sets the writing style for every steering file and skill that `retro` proposes, and `retro` loads it before it starts.
 
 [ask-matt](https://aihero.dev/skills-ask-matt) routes across the whole set when you are unsure which skill the situation needs.
