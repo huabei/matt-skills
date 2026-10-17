@@ -19,9 +19,7 @@ See [tests.md](tests.md) for examples and [mocking.md](mocking.md) for mocking g
 
 A **seam** is the public boundary you test at: the interface where you observe behavior without reaching inside. Tests live at seams, never against internals.
 
-**Test only at pre-agreed seams.** Before writing any test, write down the seams under test and confirm them with the user. No test is written at an unconfirmed seam. You can't test everything, so agreeing the seams up front is how testing effort lands on the critical paths and complex logic instead of every edge case.
-
-Ask: "What's the public interface, and which seams should we test?" Give each proposed seam a one-line note on what it catches and what it misses.
+Use the test seams and checks in the execution plan. If they are not specified, choose the relevant existing interface; ask the user only when a material ambiguity affects what behaviour is verified. Explain what a proposed seam catches and misses when a choice is needed.
 
 When the shape of that interface is itself in question (how deep the module is, where the seam belongs, what the interface should expose), call the Skill tool with "codebase-design" for the vocabulary. It is the shared source of the module, interface, depth, seam, adapter, leverage and locality terms, and it is a reference to consult, not a session to run.
 
@@ -33,6 +31,8 @@ When the shape of that interface is itself in question (how deep the module is, 
 
 ## Rules of the loop
 
+Keep tests low-cost and bounded by input size, steps, or duration. Verify deterministic behaviour; do not use long training, full experiments, or research-metric improvements as the red-green signal.
+
 - **Red before green.** Write the failing test first, then only enough code to pass it. Don't anticipate future tests or add speculative features.
 - **One slice at a time.** One seam, one test, one minimal implementation per cycle.
-- **Refactoring is not part of the loop.** It belongs to the review stage (see the `code-review` skill), not the red → green implementation cycle.
+- **Refactor after green when needed.** Keep refactoring small and rerun the affected tests. The `code-review` skill reports findings; it does not perform refactoring.

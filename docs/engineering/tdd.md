@@ -1,10 +1,8 @@
-> **Customization note.** Links marked archived describe removed skills and their former workflows. They are historical context, not available steps in this fork. Retained skills will be adapted separately.
-
 ## What it does
 
 `tdd` builds a feature or fixes a bug test-first: one failing test, then just enough code to pass it, then the next behaviour. It carries the standards that make that loop produce tests worth keeping: what a good test is, where tests go, what mocks are for, and the three anti-patterns that make a suite worthless.
 
-It writes no test at a seam you have not agreed to first. Before any test exists, it names the public boundaries it intends to test at and stops for your confirmation. Testing effort is finite, and this step spends it on the critical paths instead of on every edge case. `tdd` is also a **reference**, not a driver. It contains the rules of the loop, and something else (you, or [implement](https://aihero.dev/skills-implement)) runs the [session](https://www.aihero.dev/ai-coding-dictionary/session) that applies them.
+It uses the test seams and checks in the execution plan, or a relevant existing interface when no seam is specified. It asks only when a material ambiguity affects what behaviour is verified. Tests stay low-cost; full training and research-metric improvements are not red-green signals.
 
 ## When to reach for it
 
@@ -15,9 +13,9 @@ Reach for it when there is a concrete behaviour to build, with an input and an o
 | Your situation | Where to go |
 | --- | --- |
 | A behaviour with defined inputs and outputs (business logic, a request/response contract, a transformation, validation) | `tdd` |
-| The behaviour isn't pinned down yet | [to-spec (archived)](https://aihero.dev/skills-to-spec), which also agrees the test seams before any code is written |
+| The behaviour isn't pinned down yet | [grill-with-docs](https://aihero.dev/skills-grill-with-docs) to clarify it, then [to-plan](https://aihero.dev/skills-to-plan) to record the steps and checks |
 | The question is really the shape of the interface, not the tests | [codebase-design](https://aihero.dev/skills-codebase-design) |
-| You have a [spec](https://www.aihero.dev/ai-coding-dictionary/spec) or [tickets](https://www.aihero.dev/ai-coding-dictionary/ticket) and want the whole build run for you | [implement](https://aihero.dev/skills-implement), which drives `tdd` per ticket |
+| You have an execution plan and want it implemented | [implement](https://aihero.dev/skills-implement) |
 | Config, wiring, glue, type annotations, straight CRUD delegation | Nothing here fits well; see the open gap below |
 
 That last row is a real gap. The skill decides *where* the seams go, but nothing in it decides *whether* a change is worth the loop at all. If you run it on a change with no independent source of truth to assert against, you get a test that restates the implementation. That is the tautological anti-pattern the skill warns about, reached from the other direction. It is [issue #746](https://github.com/mattpocock/skills/issues/746), and it is open. Until it closes, you make that call yourself, or write the rule into your `CLAUDE.md`.
@@ -30,11 +28,11 @@ That last row is a real gap. The skill decides *where* the seams go, but nothing
 
 The skill rests on three terms.
 
-**Red-green.** Write the failing test, then only enough code to pass it. Do not write code for the test after next. There is no refactor phase. The skill dropped it in June 2026 because agents almost never performed it, and because review and implementation work better as separate sessions. Refactoring belongs to [code-review](https://aihero.dev/skills-code-review).
+**Red-green.** Write the failing test, then only enough code to pass it. Do not write code for the test after next. Once green, make small necessary refactors and rerun the affected tests. [code-review](https://aihero.dev/skills-code-review) reports findings rather than performing refactoring.
 
 **Vertical slice.** Write one test at one seam, then the minimal implementation, then repeat. The first cycle is a **tracer bullet** that proves a single path end to end. The opposite is horizontal slicing: all the tests first, then all the code. Tests written in bulk verify *imagined* behaviour. They check the shape of things rather than what a user does, and they commit you to a test structure before you understand the implementation.
 
-**Pre-agreed seam.** A seam is the public boundary you observe behaviour at without reaching inside. The rule has no exceptions. No test goes at an unconfirmed seam. In the full chain the seams are agreed earlier, during [to-spec (archived)](https://aihero.dev/skills-to-spec): "`/tdd` is told to only work at pre-agreed test seams, `/code-review` checks that only agreed-upon test seams were used." Invoked on its own, `tdd` asks you directly.
+**Seam.** A seam is the public boundary you observe behaviour at without reaching inside. Prefer the seams and checks captured by [to-plan](https://aihero.dev/skills-to-plan). When the plan is silent, choose a relevant existing interface and ask only if the choice has a material ambiguity.
 
 The three anti-patterns it is written to prevent:
 
@@ -48,13 +46,13 @@ Mocks are for system boundaries only: external APIs, time, randomness, sometimes
 
 ## Common questions
 
-**Why doesn't it refactor? The description says "red-green-refactor".**
+**Must I approve every test seam?**
 
-Because the refactor step was removed and the description was not. The removal was deliberate. Agents almost never did the step, and keeping implementation and review in separate sessions works better. Whether the result still counts as TDD by the book matters less than whether the loop produces better code. The mismatch between the trigger phrase and the body is filed as [issue #589](https://github.com/mattpocock/skills/issues/589) and is still open, so "red-green-refactor" continues to work as a phrase that fires the skill. What you get is red-green, with refactoring in [code-review](https://aihero.dev/skills-code-review).
+No. A seam already covered by the execution plan needs no repeated confirmation. If a choice is needed, the agent explains what each option catches and misses and asks only when the ambiguity matters.
 
-**It asked me to choose a test seam and I had no idea which to pick.**
+**Can it refactor after a test passes?**
 
-This is the most-reported friction with the skill ([issue #607](https://github.com/mattpocock/skills/issues/607)). The prompt lists candidate seams by name only, with nothing about what each one catches or misses, so you are choosing between labels. There is no fix shipped yet. The practical workaround is to ask the agent for the trade-offs before answering: what does the component-level seam miss that the integration seam catches, and how much slower is it. It is also why the chain agrees seams up front in `to-spec`, where you have the whole feature in view rather than one prompt.
+Yes, when needed. Keep the change small and rerun the affected tests. Review remains a separate reporting step.
 
 **It wrote the implementation before the test, even though the skill says red first.**
 
@@ -66,19 +64,15 @@ Usually not, and the skill will not stop it. A user reported the agent writing a
 
 **Does `/tdd` replace `/implement`, or the course's `/do-work`?**
 
-No. `/tdd` documents the methodology; `/implement` is a simple work→feedback→commit loop and is the direct stand-in for `/do-work`. The course's single `/do-work` step is now split across `/implement`, `/tdd` and `/code-review`. If you are asking which one to run against a ticket, the answer is almost always `/implement`.
+No. `/tdd` documents the methodology; `/implement` follows an execution plan, performs low-cost checks, and calls code review. The course's single `/do-work` step is now split across `/implement`, `/tdd` and `/code-review`. Use `/implement` to execute a plan and `/tdd` for test-first development.
 
 **Where did the deep-modules and interface-design guidance go?**
 
-Into [codebase-design](https://aihero.dev/skills-codebase-design) in v1.0, generalised so several skills share one vocabulary. `refactoring.md` left at the same time; refactoring is now [code-review](https://aihero.dev/skills-code-review)'s job, and that skill carries the Fowler smell baseline.
-
-**Does it know about my other tickets?**
-
-No. Run against one ticket, it can propose work that belongs to a sibling ticket, because it has no view of the rest of the issue graph ([issue #129](https://github.com/mattpocock/skills/issues/129)). This is not `tdd`'s job. Passing the spec alongside the ticket helps; right-sizing the tickets in the first place helps more.
+Into [codebase-design](https://aihero.dev/skills-codebase-design) in v1.0, generalised so several skills share one vocabulary. Small necessary refactors now happen after green; [code-review](https://aihero.dev/skills-code-review) reports correctness and efficiency findings.
 
 ## It's working if
 
-- It stops and names the seams it intends to test at, and waits, before any test file exists.
+- Tests follow the execution plan or a relevant existing interface, without repeated confirmation of settled choices.
 - One test appears, goes red, gets just enough code to pass, and only then does the next test appear, not a batch of tests followed by a batch of code.
 - Test names read as capabilities ("user can checkout with valid cart"), not as internals ("checkout calls paymentService.process").
 - Expected values in assertions are literals you can trace to the spec, not values recomputed the way the code computes them.
@@ -87,10 +81,4 @@ No. Run against one ticket, it can propose work that belongs to a sibling ticket
 
 ## Where it fits
 
-`tdd` runs inside the build step of the main chain; it is not a step of its own:
-
-```txt
-grill-with-docs → to-spec → to-tickets → implement → code-review → retro
-```
-
-[to-spec (archived)](https://aihero.dev/skills-to-spec) agrees the test seams up front, [implement](https://aihero.dev/skills-implement) drives `tdd` per ticket, and [code-review](https://aihero.dev/skills-code-review) checks afterwards that only the agreed seams were used, and owns the refactoring `tdd` no longer does. Its other neighbour is [codebase-design](https://aihero.dev/skills-codebase-design), the shared source of the seam and deep-module vocabulary that `tdd` uses. You can also reach for it on its own, whenever there is a concrete behaviour to build and no full spec in play. When you are unsure which skill fits your situation, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
+`tdd` supplies test-first development for deterministic behaviour. [to-plan](https://aihero.dev/skills-to-plan) records the execution steps and low-cost checks; [implement](https://aihero.dev/skills-implement) carries out the plan and calls [code-review](https://aihero.dev/skills-code-review). [codebase-design](https://aihero.dev/skills-codebase-design) supplies the shared interface vocabulary. See [ask-matt](https://aihero.dev/skills-ask-matt) when unsure which skill fits.

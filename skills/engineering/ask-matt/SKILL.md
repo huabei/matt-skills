@@ -18,7 +18,7 @@ Recommend a skill from the retained set below, explain why it fits, and stop so 
 | Turn settled discussion into an execution plan | `/to-plan` |
 | Execute a plan with correctness, efficiency, and low-cost checks | `/implement` |
 | Investigate a specific failure and apply a supported local fix | `/diagnosing-bugs` |
-| Build a deterministic behaviour test-first | `/tdd` |
+| Build deterministic behaviour test-first using low-cost checks | `/tdd` |
 | Review uncommitted changes for correctness and efficiency | `/code-review` |
 | Design a module's interface or structure | `/codebase-design` |
 | Clarify terminology or record a decision | `/domain-modeling` |
