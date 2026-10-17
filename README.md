@@ -96,13 +96,9 @@ When the installer asks which skills to take, include `setup-matt-pocock-skills`
 
 </details>
 
-### 2. Run `/setup-matt-pocock-skills`
+### 2. Optionally run `/setup-matt-pocock-skills`
 
-In your agent, run it once per repo. It will:
-
-- Ask you which issue tracker you want to use (GitHub, GitLab, local files, or anything else you describe)
-- Ask you what labels you apply to tickets when you triage them (`/triage` uses labels)
-- Ask you where you want to save any docs we create
+Run it to record where project terminology, decisions, and execution plans live and how agents use them. It preserves existing conventions and asks you to confirm changes before writing. Other skills work without this setup step.
 
 ### 3. Bam - you're ready to go.
 
@@ -124,7 +120,7 @@ Skills I use daily for code work.
 
 - **[ask-matt](./skills/engineering/ask-matt/SKILL.md)**: Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.
 - **[grill-with-docs](./skills/engineering/grill-with-docs/SKILL.md)**: Grilling session that also builds your project's domain model, sharpening terminology and updating `GLOSSARY.md` and ADRs inline.
-- **[setup-matt-pocock-skills](./skills/engineering/setup-matt-pocock-skills/SKILL.md)**: Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo before using the other engineering skills.
+- **[setup-matt-pocock-skills](./skills/engineering/setup-matt-pocock-skills/SKILL.md)**: Optionally configure where project terminology, decisions, and execution plans live and how agents use them.
 - **[to-plan](./skills/engineering/to-plan/SKILL.md)**: Turn the current conversation into a local execution plan with ordered steps, completion criteria, and low-cost validation.
 - **[implement](./skills/engineering/implement/SKILL.md)**: Execute a plan with correctness, computational efficiency, and low-cost validation, without long-running or full experiments.
 - **[retro](./skills/engineering/retro/SKILL.md)**: Suggest improvements to the coding agent's environment (navigation, automated checks, coding standards, steering files, tooling) after a session, most severe first.

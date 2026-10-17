@@ -8,7 +8,7 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 
 - **[ask-matt](./ask-matt/SKILL.md)**: Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.
 - **[grill-with-docs](./grill-with-docs/SKILL.md)**: Grilling session that also builds your project's domain model, sharpening terminology and updating `GLOSSARY.md` and ADRs inline.
-- **[setup-matt-pocock-skills](./setup-matt-pocock-skills/SKILL.md)**: Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo.
+- **[setup-matt-pocock-skills](./setup-matt-pocock-skills/SKILL.md)**: Optionally configure where project terminology, decisions, and execution plans live and how agents use them.
 - **[to-plan](./to-plan/SKILL.md)**: Turn the current conversation into a local execution plan with ordered steps, completion criteria, and low-cost validation.
 - **[implement](./implement/SKILL.md)**: Execute a plan with correctness, computational efficiency, and low-cost validation, without long-running or full experiments.
 - **[retro](./retro/SKILL.md)**: Suggest improvements to the coding agent's environment (navigation, automated checks, coding standards, steering files, tooling) after a session, most severe first.

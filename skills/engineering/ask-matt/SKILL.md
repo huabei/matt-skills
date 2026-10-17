@@ -27,13 +27,13 @@ Recommend a skill from the retained set below, explain why it fits, and stop so 
 | Learn a concept with a stateful teaching workspace | `/teach` |
 | Re-explain a message that did not land | `/wait-what` |
 | Write skills or agent instructions | `/writing-for-agents` |
-| Configure project conventions for the retained engineering skills | `/setup-matt-pocock-skills` |
+| Optionally configure shared docs and execution plan locations | `/setup-matt-pocock-skills` |
 
 ## Current boundaries
 
 The former `/to-spec` has been restored as `/to-plan`, which writes a local plan without implementing it. The ticket, triage, architecture-survey, PR-writing, UI-prototyping, and wizard skills have been removed. Recommend only skills present in this repo.
 
-The retained skills are being adapted separately. `/implement` follows that plan, records progress, and performs low-cost correctness and efficiency checks; it does not run long training jobs or full experiments, and commits only on user request. `/implement` calls `/code-review` on its uncommitted changes. That review uses parallel Correctness and Efficiency reviewers and checks the plan where available; it reports findings without modifying code. Setup still configures tracker and domain conventions. Explain these current constraints when recommending them; do not claim that they already run or analyse deep learning experiments.
+The retained skills are being adapted separately. `/implement` follows that plan, records progress, and performs low-cost correctness and efficiency checks; it does not run long training jobs or full experiments, and commits only on user request. `/implement` calls `/code-review` on its uncommitted changes. That review uses parallel Correctness and Efficiency reviewers and checks the plan where available; it reports findings without modifying code. Setup optionally records shared-document and plan conventions; it does not configure issue tracking. Explain these current constraints when recommending them; do not claim that they already run or analyse deep learning experiments.
 
 `/diagnosing-bugs` uses bounded reproductions or existing artifacts to investigate specific failures and can apply supported local fixes. It distinguishes code defects from disappointing research outcomes and does not run long training or full experiments.
 
