@@ -8,7 +8,7 @@ You invoke this by typing `/ask-matt`; the agent does not reach for it on its ow
 
 ## Current boundaries
 
-The former spec-and-ticket flow is replaced by [to-plan](https://aihero.dev/skills-to-plan), which writes a local execution plan, followed by [implement](https://aihero.dev/skills-implement), which executes it with low-cost validation. Some retained skills still carry their original engineering assumptions and will be adapted separately. The router points out those constraints rather than promising experiment execution or analysis that the skills do not yet provide.
+[to-plan](https://aihero.dev/skills-to-plan) writes a local execution plan, followed by [implement](https://aihero.dev/skills-implement), which executes it with low-cost validation. Implementation calls [code-review](https://aihero.dev/skills-code-review) on uncommitted changes and handles substantive findings. The router explains current boundaries without promising long training or full experiments.
 
 ## Common questions
 

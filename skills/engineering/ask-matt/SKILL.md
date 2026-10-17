@@ -31,15 +31,19 @@ Recommend a skill from the retained set below, explain why it fits, and stop so 
 
 ## Current boundaries
 
-The former `/to-spec` has been restored as `/to-plan`, which writes a local plan without implementing it. The ticket, triage, architecture-survey, PR-writing, UI-prototyping, and wizard skills have been removed. Recommend only skills present in this repo.
+`/to-plan` writes a local execution plan without implementing it. Recommend only skills present in this repo.
 
-The retained skills are being adapted separately. `/implement` follows that plan, records progress, and performs low-cost correctness and efficiency checks; it does not run long training jobs or full experiments, and commits only on user request. `/implement` calls `/code-review` on its uncommitted changes. That review uses parallel Correctness and Efficiency reviewers and checks the plan where available; it reports findings without modifying code. Setup optionally records shared-document and plan conventions; it does not configure issue tracking. Explain these current constraints when recommending them; do not claim that they already run or analyse deep learning experiments.
+`/implement` follows that plan, records progress, and performs low-cost correctness and efficiency checks; it does not run long training jobs or full experiments, and commits only on user request. `/implement` calls `/code-review` on its uncommitted changes. That review uses parallel Correctness and Efficiency reviewers and checks the plan where available; it reports findings without modifying code. Setup optionally records shared-document and plan conventions; it does not configure issue tracking. Explain these current constraints when recommending them; do not claim that they already run or analyse deep learning experiments.
 
 `/diagnosing-bugs` uses bounded reproductions or existing artifacts to investigate specific failures and can apply supported local fixes. It distinguishes code defects from disappointing research outcomes and does not run long training or full experiments.
 
 `/grilling` clarifies the current goal and necessary decisions, retains experiment-dependent questions, and waits for confirmation of shared understanding.
 
 `/research` investigates code, dependencies, and official documentation in one background agent without further delegation, and records cited findings. It is not an experiment runner or a dedicated literature-review workflow. `/teach` explains concepts through the current task in the conversation, without a long-term teaching workspace.
+
+## Main flow
+
+`/grill-with-docs` clarifies the goal and maintains shared understanding. `/to-plan` turns the discussion into a local execution plan. `/implement` executes that plan and calls `code-review` on its uncommitted changes, then fixes substantive findings. The human chooses which user-invoked step to run.
 
 ## Context boundaries
 
