@@ -14,7 +14,7 @@ Recommend a skill from the retained set below, explain why it fits, and stop so 
 | --- | --- |
 | Clarify an idea while maintaining shared project understanding | `/grill-with-docs`, combining `/grilling` and `/domain-modeling` |
 | Discuss an idea without maintaining project docs | `/grill-me`, the wrapper around `/grilling` |
-| Investigate source code or technical primary sources | `/research` |
+| Investigate code, dependencies, or official documentation | `/research` |
 | Turn settled discussion into an execution plan | `/to-plan` |
 | Execute a plan with correctness, efficiency, and low-cost checks | `/implement` |
 | Investigate a specific failure and apply a supported local fix | `/diagnosing-bugs` |
@@ -37,7 +37,7 @@ The retained skills are being adapted separately. `/implement` follows that plan
 
 `/diagnosing-bugs` uses bounded reproductions or existing artifacts to investigate specific failures and can apply supported local fixes. It distinguishes code defects from disappointing research outcomes and does not run long training or full experiments.
 
-`/research` investigates primary sources and records cited findings. It is not an experiment runner or a dedicated literature-review workflow. `/teach` currently builds a teaching workspace across sessions.
+`/research` investigates code, dependencies, and official documentation in one background agent without further delegation, and records cited findings. It is not an experiment runner or a dedicated literature-review workflow. `/teach` currently builds a teaching workspace across sessions.
 
 ## Context boundaries
 
