@@ -24,7 +24,7 @@ Recommend a skill from the retained set below, explain why it fits, and stop so 
 | Clarify project terminology or distinguish current and intended behaviour | `/domain-modeling` |
 | Suggest evidence-based improvements to the agent's environment after a session | `/retro` |
 | Transfer context via a document in the project temporary directory | `/handoff` |
-| Learn a concept with a stateful teaching workspace | `/teach` |
+| Understand a concept through the current code or task | `/teach` |
 | Re-explain a message that did not land | `/wait-what` |
 | Write skills or agent instructions | `/writing-for-agents` |
 | Optionally configure shared docs and execution plan locations | `/setup-matt-pocock-skills` |
@@ -39,7 +39,7 @@ The retained skills are being adapted separately. `/implement` follows that plan
 
 `/grilling` clarifies the current goal and necessary decisions, retains experiment-dependent questions, and waits for confirmation of shared understanding.
 
-`/research` investigates code, dependencies, and official documentation in one background agent without further delegation, and records cited findings. It is not an experiment runner or a dedicated literature-review workflow. `/teach` currently builds a teaching workspace across sessions.
+`/research` investigates code, dependencies, and official documentation in one background agent without further delegation, and records cited findings. It is not an experiment runner or a dedicated literature-review workflow. `/teach` explains concepts through the current task in the conversation, without a long-term teaching workspace.
 
 ## Context boundaries
 
