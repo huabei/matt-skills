@@ -20,7 +20,7 @@ Recommend a skill from the retained set below, explain why it fits, and stop so 
 | Investigate a specific failure and apply a supported local fix | `/diagnosing-bugs` |
 | Build deterministic behaviour test-first using low-cost checks | `/tdd` |
 | Review uncommitted changes for correctness and efficiency | `/code-review` |
-| Design a module's interface or structure | `/codebase-design` |
+| Design a module's interface or structure using project terminology | `/codebase-design` |
 | Clarify terminology or record a decision | `/domain-modeling` |
 | Improve the agent's environment after a coding session | `/retro` |
 | Transfer context to another session or workspace | `/handoff` |
