@@ -48,7 +48,7 @@ Sessions grow too long when you try to talk through an ungrillable question. The
 ## Common questions
 
 **How many questions should I expect, and how do I know when it ends?**
-Count rounds, not questions. Forty-six questions across four rounds is an ordinary session. It ends when the frontier is empty: it has visited every branch, and nothing is left as an unstated assumption.
+Count rounds, not questions. Forty-six questions across four rounds is an ordinary session. It ends when the current goal and necessary decisions are clear and you confirm shared understanding. Questions requiring experiments remain explicitly unresolved.
 
 **It asked me two hundred questions. What went wrong?**
 Usually the scope was too large. Ask the agent to break the work into smaller pieces first, then grill each one. Very long sessions also drift into the **[dumb zone](https://www.aihero.dev/ai-coding-dictionary/smart-zone)**, where the [context window](https://www.aihero.dev/ai-coding-dictionary/context-window) is full enough that the questions get worse.

@@ -2,7 +2,7 @@
 
 ## What it does
 
-`grilling` is the interview loop that stress-tests a plan, a decision, or an idea before anyone acts on it. It maps the subject as a **design tree**: every decision branches into the decisions that hang off it, and interviews you branch by branch until no assumption stays unstated.
+`grilling` is the interview loop that stress-tests a plan, a decision, or an idea before anyone acts on it. It maps the subject as a **design tree**: every decision branches into the decisions that hang off it, and interviews you until the current goal and necessary decisions are clear. Questions requiring experiments remain explicitly unresolved rather than being settled by conversation.
 
 It does not ask one question at a time, and it does not ask everything at once. Each **round** asks the whole **frontier**: every decision whose prerequisites are already settled, and nothing else. Two questions never share a round if one depends on the other; a question that hinges on an answer still open belongs to a later round. Your answers settle decisions, the frontier moves outward, and the next round asks what that unblocked. Thirteen questions typically land in about three rounds rather than thirteen.
 
@@ -60,7 +60,7 @@ Into this skill. Round-based questioning shipped briefly as a separate skill, th
 This is the most common objection to rounds, and the frontier answers it. A round only contains questions that do not depend on each other, so no answer in a round can invalidate another question in that round. Your answers still change what comes after them, because the agent works out each next round from scratch. You do lose something, but less than "all questions at once" implies. See the frontier's limit above.
 
 **It ran out of questions and started building.**
-The confirmation gate exists for this. The skill is finished when you say the understanding is shared, not when the frontier empties. Weaker and faster [models](https://www.aihero.dev/ai-coding-dictionary/model) still skip the gate. Users report this most often on lower-effort or non-frontier models, which collapse "interview until shared understanding" into a couple of questions and an outline. If yours does it, the reliable fix is a line in your own `AGENTS.md` or `CLAUDE.md` telling the agent not to implement without permission.
+The confirmation gate exists for this. The skill finishes when the current goal and necessary decisions are clear and you confirm that understanding is shared. Questions that require experiments can remain explicitly unresolved. Weaker and faster [models](https://www.aihero.dev/ai-coding-dictionary/model) still skip the gate. Users report this most often on lower-effort or non-frontier models, which collapse "interview until shared understanding" into a couple of questions and an outline. If yours does it, the reliable fix is a line in your own `AGENTS.md` or `CLAUDE.md` telling the agent not to implement without permission.
 
 **It answered its own questions instead of asking me.**
 That is a bug in the run, and it is the reason the skill's text separates facts from decisions. It happens most when another skill runs `grilling` to resolve a ticket, and the agent takes that task as permission to keep moving. The same constraint is why there is no async mode. People have asked for a variant that reads a GitHub issue and posts one consolidated decision memo, and that is a different skill, because a grilling session that nobody answers has produced the agent's opinion rather than yours.
@@ -82,7 +82,7 @@ This is a real bug, still unfixed, and users report it across [harnesses](https:
 - It goes and looks facts up (reading files, dispatching a sub-agent) rather than asking you something it could have found out.
 - Research running in the background does not stall the round; only the questions that depend on it wait.
 - It stops at the end and asks you to confirm the understanding is shared, instead of starting work.
-- Question count stays high while round count stays low.
+- Discussion ends once the current goal and necessary decisions are clear, with experiment-dependent questions explicitly retained.
 
 ## Where it fits
 

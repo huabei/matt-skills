@@ -37,6 +37,8 @@ The retained skills are being adapted separately. `/implement` follows that plan
 
 `/diagnosing-bugs` uses bounded reproductions or existing artifacts to investigate specific failures and can apply supported local fixes. It distinguishes code defects from disappointing research outcomes and does not run long training or full experiments.
 
+`/grilling` clarifies the current goal and necessary decisions, retains experiment-dependent questions, and waits for confirmation of shared understanding.
+
 `/research` investigates code, dependencies, and official documentation in one background agent without further delegation, and records cited findings. It is not an experiment runner or a dedicated literature-review workflow. `/teach` currently builds a teaching workspace across sessions.
 
 ## Context boundaries
