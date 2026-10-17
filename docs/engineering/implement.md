@@ -59,4 +59,4 @@ No. Changes remain available for inspection. Committing or pushing requires a us
 
 ## Where it fits
 
-`implement` is the code-change step after [to-plan](https://aihero.dev/skills-to-plan) has captured the agreed execution plan. [tdd](https://aihero.dev/skills-tdd) supplies test-first development when requested; [code-review](https://aihero.dev/skills-code-review) is a separate review tool whose current interface still expects committed changes and an originating spec. This skill reviews the actual task diff before handoff. Use [ask-matt](https://aihero.dev/skills-ask-matt) to choose among the retained skills.
+`implement` is the code-change step after [to-plan](https://aihero.dev/skills-to-plan) has captured the agreed execution plan. [tdd](https://aihero.dev/skills-tdd) supplies test-first development when requested; It calls [code-review](https://aihero.dev/skills-code-review) on the task's uncommitted changes with the execution plan, then fixes substantive findings and reruns affected checks. Use [ask-matt](https://aihero.dev/skills-ask-matt) to choose among the retained skills.

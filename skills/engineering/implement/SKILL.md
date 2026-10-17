@@ -12,6 +12,6 @@ Preserve the intended mathematics and gradient behaviour. Consider compute, memo
 
 Run the plan's low-cost checks, bounded by steps, input size, or duration. Do not run long training jobs or full experiments. Distinguish correctness checks and measured performance from unverified expectations; report missing hardware, data, or other validation gaps.
 
-Review the actual task diff, including staged, unstaged, and new files, without disturbing pre-existing user changes. Fix substantive correctness and efficiency issues and rerun affected checks.
+Call the Skill tool with "code-review", providing the execution plan and the scope of this task's uncommitted changes, distinguishing pre-existing user changes. Fix substantive correctness and efficiency issues and rerun affected checks.
 
 Update the plan with progress, validation evidence, and deviations. Mark steps complete only when their completion criteria and required checks are satisfied. Report the changes and remaining limitations. Commit or push only when the user has requested it.
