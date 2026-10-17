@@ -39,7 +39,7 @@ The glossary and the ADR have different bars. Most of the trouble with this skil
 | Holds | Terms. What a thing **is**, in one or two sentences, with rejected synonyms under `_Avoid_` | One decision, in one to three sentences: context, choice, reason |
 | Bar to write | A vague term became canonical | **All three**: hard to reverse, surprising without context, the result of a real trade-off |
 | Written | Inline, the moment the term is settled | Offered, not assumed |
-| Never holds | Implementation details, a [spec](https://www.aihero.dev/ai-coding-dictionary/spec), a scratch pad, general programming concepts | A diary of every choice made this session |
+| Never holds | Implementation details, a [spec](https://www.aihero.dev/ai-coding-dictionary/spec), a scratch pad, general reference material | A diary of every choice made this session |
 
 Miss any one of the ADR's three tests and there is no ADR. An easily-reversed decision will just get reversed; an unsurprising one is nobody's question; one with no real alternative records that you did the obvious thing.
 
@@ -47,7 +47,7 @@ The `GLOSSARY.md` rule matters most, because it is the one that breaks in practi
 
 ## Cross-referencing, and where it stops
 
-When you state how something works, the skill checks the code and points out any contradiction. *"Your code cancels entire Orders, but you just said partial cancellation is possible, which is right?"* The skill makes the language and the code agree, out loud, before it changes either.
+When you state how something works, the skill checks the code and distinguishes current implementation from intended behaviour. A proposed change is not treated as a contradiction in shared understanding. The glossary can include common terms such as step, episode, or mask when their project-specific meaning needs clarification; it remains a glossary, not a general reference.
 
 It cross-references **code** and the committed `GLOSSARY.md` and ADRs, and nothing else. It does not search your issue tracker. If your team argued out a naming collision and settled it in a closed issue months ago, the skill raises it again as if it were new. There is [an open request](https://github.com/mattpocock/skills/issues/717) to fix this. Until then, the workaround is to put the instruction in your own `docs/agents/domain.md`, which the skills already read.
 
@@ -80,7 +80,7 @@ No, and there is no plan for a skill that does. A domain language you do not und
 - `GLOSSARY.md` changes **during** the conversation, not in a burst at the end.
 - It refuses to write an ADR for something you could undo tomorrow, and says which of the three tests failed.
 - New entries define what a thing *is* in one or two sentences and name the words you are giving up under `_Avoid_`.
-- It quotes your code back at you when your code and your sentence disagree.
+- It distinguishes the code's current behaviour from changes you are proposing.
 - `GLOSSARY.md` gets shorter as often as it gets longer.
 
 ## Where it fits
