@@ -1,6 +1,6 @@
 ## What it does
 
-`ask-matt` recommends a skill from the 17 retained skills in this research fork. It reads the target skill before describing its behaviour and stops after the recommendation so you can choose what to invoke.
+`ask-matt` recommends a skill from the 18 retained skills in this research fork. It reads the target skill before describing its behaviour and stops after the recommendation so you can choose what to invoke.
 
 ## When to reach for it
 
@@ -8,7 +8,7 @@ You invoke this by typing `/ask-matt`; the agent does not reach for it on its ow
 
 ## Current boundaries
 
-The spec and ticket orchestration flow has been removed. Some retained skills still carry their original engineering assumptions and will be adapted separately. The router points out those constraints rather than promising experiment execution or analysis that the skills do not yet provide.
+The former spec-and-ticket flow is replaced by [to-plan](https://aihero.dev/skills-to-plan), which writes a local execution plan, followed by [implement](https://aihero.dev/skills-implement), which executes it with low-cost validation. Some retained skills still carry their original engineering assumptions and will be adapted separately. The router points out those constraints rather than promising experiment execution or analysis that the skills do not yet provide.
 
 ## Common questions
 

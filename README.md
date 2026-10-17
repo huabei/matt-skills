@@ -108,7 +108,7 @@ In your agent, run it once per repo. It will:
 
 ## Research customization
 
-This fork retains 17 skills for code investigation, implementation, debugging, review, shared understanding, and learning. Spec generation, ticket orchestration, UI prototyping, and unrelated tooling have been removed. Retained skills are being adapted separately for deep learning research.
+This fork retains 18 skills for code investigation, implementation, debugging, review, shared understanding, and learning. The former to-spec returns as to-plan, producing a local execution plan. Ticket orchestration, UI prototyping, and unrelated tooling have been removed. Retained skills are being adapted separately for deep learning research.
 
 Use [ask-matt](./skills/engineering/ask-matt/SKILL.md) to choose among the retained skills. Archived docs describe removed workflows for historical reference.
 
@@ -125,7 +125,8 @@ Skills I use daily for code work.
 - **[ask-matt](./skills/engineering/ask-matt/SKILL.md)**: Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.
 - **[grill-with-docs](./skills/engineering/grill-with-docs/SKILL.md)**: Grilling session that also builds your project's domain model, sharpening terminology and updating `GLOSSARY.md` and ADRs inline.
 - **[setup-matt-pocock-skills](./skills/engineering/setup-matt-pocock-skills/SKILL.md)**: Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo before using the other engineering skills.
-- **[implement](./skills/engineering/implement/SKILL.md)**: Build the work described by a spec or set of tickets, driving `/tdd` at pre-agreed seams and closing out with `/code-review` before committing.
+- **[to-plan](./skills/engineering/to-plan/SKILL.md)**: Turn the current conversation into a local execution plan with ordered steps, completion criteria, and low-cost validation.
+- **[implement](./skills/engineering/implement/SKILL.md)**: Execute a plan with correctness, computational efficiency, and low-cost validation, without long-running or full experiments.
 - **[retro](./skills/engineering/retro/SKILL.md)**: Suggest improvements to the coding agent's environment (navigation, automated checks, coding standards, steering files, tooling) after a session, most severe first.
 
 **Model-invoked**

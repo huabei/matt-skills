@@ -15,7 +15,8 @@ Recommend a skill from the retained set below, explain why it fits, and stop so 
 | Clarify an idea while maintaining shared project understanding | `/grill-with-docs`, combining `/grilling` and `/domain-modeling` |
 | Discuss an idea without maintaining project docs | `/grill-me`, the wrapper around `/grilling` |
 | Investigate source code or technical primary sources | `/research` |
-| Implement a concrete change | `/implement` |
+| Turn settled discussion into an execution plan | `/to-plan` |
+| Execute a plan with correctness, efficiency, and low-cost checks | `/implement` |
 | Diagnose a bug or performance regression | `/diagnosing-bugs` |
 | Build a deterministic behaviour test-first | `/tdd` |
 | Review changes against a fixed point | `/code-review` |
@@ -30,9 +31,9 @@ Recommend a skill from the retained set below, explain why it fits, and stop so 
 
 ## Current boundaries
 
-The spec, ticket, triage, architecture-survey, PR-writing, UI-prototyping, and wizard skills have been removed. Recommend only skills present in this repo.
+The former `/to-spec` has been restored as `/to-plan`, which writes a local plan without implementing it. The ticket, triage, architecture-survey, PR-writing, UI-prototyping, and wizard skills have been removed. Recommend only skills present in this repo.
 
-The retained skills are being adapted separately. At present, `/implement` still accepts a spec or tickets, invokes TDD where possible, reviews, and commits. `/code-review` still has Standards and Spec axes and expects an issue tracker. Setup still configures tracker and domain conventions. Explain these current constraints when recommending them; do not claim that they already run or analyse deep learning experiments.
+The retained skills are being adapted separately. `/implement` follows that plan, records progress, and performs low-cost correctness and efficiency checks; it does not run long training jobs or full experiments, and commits only on user request. `/code-review` still has Standards and Spec axes and expects an issue tracker. Setup still configures tracker and domain conventions. Explain these current constraints when recommending them; do not claim that they already run or analyse deep learning experiments.
 
 `/research` investigates primary sources and records cited findings. It is not an experiment runner or a dedicated literature-review workflow. `/teach` currently builds a teaching workspace across sessions.
 

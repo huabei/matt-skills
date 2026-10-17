@@ -1,4 +1,4 @@
-> **Archived.** Removed in the research customization of version 1.3.1 (unreleased). This skill has no replacement in this fork. The original documentation below is retained for reference; its workflow is no longer available here.
+> **Archived.** Removed in the research customization of version 1.3.1 (unreleased). Its replacement in this fork is [to-plan](https://aihero.dev/skills-to-plan), which writes a local execution plan. The original documentation below is retained for reference; its workflow is no longer available here.
 
 ## What it does
 

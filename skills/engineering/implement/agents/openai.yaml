@@ -1,5 +1,5 @@
 interface:
   display_name: "Implement"
-  short_description: "Build work from a spec or tickets"
+  short_description: "Execute a plan with correctness and efficiency checks"
 policy:
   allow_implicit_invocation: false
