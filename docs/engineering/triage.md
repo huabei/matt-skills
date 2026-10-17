@@ -1,3 +1,5 @@
+> **Archived.** Removed in the research customization of version 1.3.1 (unreleased). This skill has no replacement in this fork. The original documentation below is retained for reference; its workflow is no longer available here.
+
 ## What it does
 
 `triage` works through the issues on your project's tracker. It moves each one through a small state machine of **triage roles** (a category role and a state role). Each issue ends as an agent-ready brief, a specific question for the reporter, or a closed issue with a recorded reason.

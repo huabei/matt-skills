@@ -1,3 +1,5 @@
+> **Archived.** Removed in the research customization of version 1.3.1 (unreleased). This skill has no replacement in this fork. The original documentation below is retained for reference; its workflow is no longer available here.
+
 ## What it does
 
 `improve-codebase-architecture` surveys a codebase for **deepening opportunities**. These are places where a shallow module (an interface nearly as complex as the thing it hides) could become a deep one. It writes them up as a self-contained HTML report, and then [grills](https://www.aihero.dev/ai-coding-dictionary/grilling) you through the one you pick.

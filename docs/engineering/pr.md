@@ -1,3 +1,5 @@
+> **Archived.** Removed in the research customization of version 1.3.1 (unreleased). This skill has no replacement in this fork. The original documentation below is retained for reference; its workflow is no longer available here.
+
 ## What it does
 
 `pr` defines the shape of a pull request body: a **Summary** that shows the change, **Evidence** that it works, and a **Merge Danger** call on how risky it is to land. It is a format reference, not a workflow. It does not push a branch, open the PR, or decide what goes into it. It tells the [agent](https://www.aihero.dev/ai-coding-dictionary/agent) what the body should look like when it writes one.

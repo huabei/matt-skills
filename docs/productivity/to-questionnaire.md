@@ -1,3 +1,5 @@
+> **Archived.** Removed in the research customization of version 1.3.1 (unreleased). This skill has no replacement in this fork. The original documentation below is retained for reference; its workflow is no longer available here.
+
 ## What it does
 
 `to-questionnaire` turns a decision you can't settle on your own into a **questionnaire**: a Markdown document you hand to the one person who holds what you're missing, for them to fill in async or for the two of you to work through in a meeting.

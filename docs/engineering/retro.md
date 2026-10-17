@@ -1,3 +1,5 @@
+> **Customization note.** Links marked archived describe removed skills and their former workflows. They are historical context, not available steps in this fork. Retained skills will be adapted separately.
+
 ## What it does
 
 `retro` looks back over a coding [session](https://www.aihero.dev/ai-coding-dictionary/session) and suggests improvements to the agent's **[environment](https://www.aihero.dev/ai-coding-dictionary/environment)**, so the next run goes better. It reads the session's own record (the current one by default, or one you point it at in the session logs). It finds the moments where the agent struggled, and gives you a list of candidate fixes, most severe first.
@@ -56,7 +58,7 @@ No skill ships the file. The first time a session finds a judgement-call rule fo
 
 **How is it different from `improve-codebase-architecture`?**
 
-The input is different. [improve-codebase-architecture](https://aihero.dev/skills-improve-codebase-architecture) needs only the code, and looks for structural improvements to it. `retro` needs a session history, and improves the environment the agent works in, not the code. You use both; neither replaces the other.
+The input is different. [improve-codebase-architecture (archived)](https://aihero.dev/skills-improve-codebase-architecture) needs only the code, and looks for structural improvements to it. `retro` needs a session history, and improves the environment the agent works in, not the code. You use both; neither replaces the other.
 
 ## It's working if
 
