@@ -17,7 +17,7 @@ Recommend a skill from the retained set below, explain why it fits, and stop so 
 | Investigate source code or technical primary sources | `/research` |
 | Turn settled discussion into an execution plan | `/to-plan` |
 | Execute a plan with correctness, efficiency, and low-cost checks | `/implement` |
-| Diagnose a bug or performance regression | `/diagnosing-bugs` |
+| Investigate a specific failure and apply a supported local fix | `/diagnosing-bugs` |
 | Build a deterministic behaviour test-first | `/tdd` |
 | Review uncommitted changes for correctness and efficiency | `/code-review` |
 | Design a module's interface or structure | `/codebase-design` |
@@ -34,6 +34,8 @@ Recommend a skill from the retained set below, explain why it fits, and stop so 
 The former `/to-spec` has been restored as `/to-plan`, which writes a local plan without implementing it. The ticket, triage, architecture-survey, PR-writing, UI-prototyping, and wizard skills have been removed. Recommend only skills present in this repo.
 
 The retained skills are being adapted separately. `/implement` follows that plan, records progress, and performs low-cost correctness and efficiency checks; it does not run long training jobs or full experiments, and commits only on user request. `/implement` calls `/code-review` on its uncommitted changes. That review uses parallel Correctness and Efficiency reviewers and checks the plan where available; it reports findings without modifying code. Setup still configures tracker and domain conventions. Explain these current constraints when recommending them; do not claim that they already run or analyse deep learning experiments.
+
+`/diagnosing-bugs` uses bounded reproductions or existing artifacts to investigate specific failures and can apply supported local fixes. It distinguishes code defects from disappointing research outcomes and does not run long training or full experiments.
 
 `/research` investigates primary sources and records cited findings. It is not an experiment runner or a dedicated literature-review workflow. `/teach` currently builds a teaching workspace across sessions.
 
